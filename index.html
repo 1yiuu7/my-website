@@ -17,14 +17,15 @@
     .overlay {
       background-color: rgba(0, 0, 0, 0.7);
       min-height: 100vh;
-      padding: 50px 20px;
+      padding: 50px 20px 80px;
       backdrop-filter: blur(8px);
       box-sizing: border-box;
+      position: relative;
     }
     h1 {
       text-align: center;
       font-size: 3em;
-      margin-bottom: 30px;
+      margin-bottom: 5px;
       animation: colorPulse 5s linear infinite;
       font-weight: 900;
       letter-spacing: 4px;
@@ -34,6 +35,35 @@
       0%, 100% { color: #00ffff; }
       50% { color: #ff00ff; }
     }
+
+    /* 跑馬燈 */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      border: 1.5px solid #00ccff;
+      border-radius: 15px;
+      margin: 0 auto 30px;
+      max-width: 900px;
+      padding: 10px 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .marquee-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 20s linear infinite;
+      font-size: 1.1em;
+      color: #66eeff;
+      font-weight: 600;
+      user-select: none;
+      letter-spacing: 1.1px;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
     .description {
       max-width: 900px;
       margin: auto;
@@ -51,11 +81,12 @@
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     .buttons {
       text-align: center;
-      margin: 40px 0;
+      margin: 40px 0 60px;
     }
-    .buttons button, .buttons a.button-link {
+    .buttons button {
       background: linear-gradient(45deg, #00aaff, #0066cc);
       color: white;
       border: none;
@@ -68,14 +99,33 @@
       letter-spacing: 1.2px;
       box-shadow: 0 0 12px #00aaff;
       transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
       user-select: none;
     }
-    .buttons button:hover, .buttons a.button-link:hover {
+    .buttons button:hover {
       background: linear-gradient(45deg, #33ccff, #0099cc);
       box-shadow: 0 0 20px #33ccff;
       transform: scale(1.1);
+    }
+    /* 官方網站按鈕獨立樣式 */
+    .official-site {
+      display: inline-block;
+      margin-top: 0;
+      padding: 16px 34px;
+      font-size: 1.15em;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      background: #ff6600;
+      box-shadow: 0 0 18px #ff6600cc;
+      border-radius: 18px;
+      text-decoration: none;
+      color: white;
+      user-select: none;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+    }
+    .official-site:hover {
+      background: #ff8533;
+      box-shadow: 0 0 30px #ff8533cc;
+      transform: scale(1.15);
     }
 
     section {
@@ -117,11 +167,6 @@
       letter-spacing: 0.6px;
     }
 
-    /* 按鈕區特別連結 */
-    a.button-link {
-      user-select: none;
-    }
-
     /* 平滑滾動 */
     html {
       scroll-behavior: smooth;
@@ -132,6 +177,12 @@
   <div class="overlay">
     <h1>台北市立復興高中AI資安學程</h1>
 
+    <div class="marquee-container" aria-label="學生名單跑馬燈">
+      <div class="marquee-text" tabindex="0">
+        學生名單：10231鄭宇佑、10321張雅博、10511蔡亦淇、10531黎育承、10617余信恩、10618吳耀林、10623林致佑、10707林茉莉、10730葉品驛、10909陳宥穎、10924陳兆閩、11523郭鈞瑋、11602江以琳、11615鍾雨岑
+      </div>
+    </div>
+
     <div class="description">
       AI資安學程是一個分散式學習資安的專班，我們有豐富的活動與競賽，結識了許多認真且有趣的夥伴。這裡不僅是避風港，更是激發努力與目標的動力，讓每個人因共同的興趣和目標而互相學習、共同成長。
     </div>
@@ -140,38 +191,29 @@
       <button onclick="scrollToSection('intro')">介紹</button>
       <button onclick="scrollToSection('achievements')">成就</button>
       <button onclick="scrollToSection('future')">未來規劃</button>
-      <a href="https://www.fhsh.tp.edu.tw/" target="_blank" class="button-link">官方網站</a>
+      <button onclick="scrollToSection('faculty')">師資</button>
+    </div>
+
+    <div style="text-align:center; margin-bottom: 40px;">
+      <a href="https://www.fhsh.tp.edu.tw/" target="_blank" class="official-site" rel="noopener noreferrer">官方網站</a>
     </div>
 
     <section id="intro">
       <h2>📘 介紹</h2>
       <p>我們專班專注於AI與資安的整合學習，結合理論與實作，培養具備實戰經驗與問題解決能力的資安人才。課程涵蓋Python、Linux、資安基礎概論、計算機概論、英文與數學，並強調團隊合作與實務演練。</p>
-    </section>
+</section>
 
-    <section id="achievements">
-      <h2>🏆 成就</h2>
-      <p>學生參與各大資安競賽，如CTF與駭客松，屢獲佳績，展現出色的資安實力與團隊協作能力，提升了學程在業界的聲譽與影響力。</p>
-      <div class="list-block">
-        <strong>學生名單：</strong> 10231鄭宇佑、10321張雅博、10511蔡亦淇、10531黎育承、10617余信恩、10618吳耀林、10623林致佑、10707林茉莉、10730葉品驛、10909陳宥穎、10924陳兆閩、11523郭鈞瑋、11602江以琳、11615鍾雨岑
-      </div>
-    </section>
+<section id="achievements">
+  <h2>🏆 成就</h2>
+  <p>我們的學生參與多項全國性資安競賽，屢獲佳績。在CTF競賽中表現傑出，多位學生也獲得業界實習機會，展現出強大的學習與應用能力。</p>
+</section>
 
-    <section id="future">
-      <h2>🚀 未來規劃</h2>
-      <p>未來將持續發展AI與資安融合的課程內容，並積極與業界合作，引入更多實務專案與實習機會，提升學生的競爭力與職場適應力。</p>
-      <div class="list-block">
-        <strong>師資陣容：</strong> 陳晉、賴仕鈞、詹博文、杜欣欣、陳瓏元
-      </div>
-      <div class="list-block">
-        <strong>學科範圍：</strong> Python、Linux、資安基礎概論、計算機概論、英文、數學
-      </div>
-    </section>
-  </div>
+<section id="future">
+  <h2>🚀 未來規劃</h2>
+  <p>未來我們將與大學及業界深化合作，導入更多AI與資安新技術，擴大培訓資源，並持續優化課程，協助學生取得相關證照，邁向科技產業的第一線。</p>
+</section>
 
-  <script>
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
-</body>
-</html>
+<section id="faculty">
+  <h2>👨‍🏫 師資</h2>
+  <p>本學程由多位經驗豐富的教師指導，包括具備AI、資安、數理專業背景的師資群。老師們不僅提供扎實的理論指導，也積極參與學生專題與競賽，陪伴學生成長。</p>
+</section>
