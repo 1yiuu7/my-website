@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>台北市立復興高中AI資安學程</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://png.pngtree.com/background/20210709/original/pngtree-simple-technology-business-line-picture-image_938374.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      padding: 50px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      max-width: 800px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .buttons button {
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
+
+    .buttons button:hover {
+      background-color: #0088cc;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+    }
+
+    section h2 {
+      color: #00ccff;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>台北市立復興高中AI資安學程</h1>
+
+    <div class="description">
+      AI資安學程是一個分散式學習資安的資安專班，我們常常會有許多的活動及競賽，在資安班也會遇到許多有趣且認真的朋友（夥伴）。它不僅是在學校的避風港，更是自己努力的動力及目標，給個人都有相同的目標及興趣愛好，而且大家都會互相學習，共同進步。
+    </div>
+
+    <div class="buttons">
+      <button onclick="scrollToSection('intro')">介紹</button>
+      <button onclick="scrollToSection('achievements')">成就</button>
+      <button onclick="scrollToSection('future')">未來規劃</button>
+    </div>
+
+    <section id="intro">
+      <h2>📘 介紹</h2>
+      <p>我們專班專注於AI與資安的整合學習，結合理論與實作，培養具備實戰經驗的資安人才。</p>
+    </section>
+
+    <section id="achievements">
+      <h2>🏆 成就</h2>
+      <p>學生曾參與各大資安競賽，包含CTF、駭客松等，並多次獲得優異成績。</p>
+    </section>
+
+    <section id="future">
+      <h2>🚀 未來規劃</h2>
+      <p>未來將持續發展AI結合資安的課程，並與業界合作，提升學生競爭力與實務能力。</p>
+    </section>
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
